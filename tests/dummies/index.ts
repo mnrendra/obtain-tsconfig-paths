@@ -1,5 +1,7 @@
-import main from './main'
+import tsConfigPaths from './tsConfigPaths'
+import tsConfigValues from './tsConfigValues'
 
 export {
-  main
+  tsConfigPaths,
+  tsConfigValues
 }
