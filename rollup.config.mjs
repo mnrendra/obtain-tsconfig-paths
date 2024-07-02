@@ -17,7 +17,7 @@ export default [
         sourcemap: true
       }
     ],
-    plugins: esbuild({ minify: false })
+    plugins: esbuild({ minify: true })
   },
   {
     external: (id) => !/^[./]/.test(id),

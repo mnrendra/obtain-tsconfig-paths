@@ -1,7 +1,7 @@
 {
   "name": "@mnrendra/obtain-tsconfig-paths",
   "version": "0.0.0-development",
-  "description": "Obtain a valid baseUrl and paths from the compilerOptions in tsconfig.json.",
+  "description": "Obtain a valid baseUrl and paths from the compilerOptions in tsconfig.json file.",
   "private": false,
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -25,6 +25,11 @@
     "url": "https://github.com/mnrendra/obtain-tsconfig-paths/issues"
   },
   "homepage": "https://github.com/mnrendra/obtain-tsconfig-paths#readme",
+  "dependencies": {
+    "@mnrendra/read-tsconfig": "^1.0.1",
+    "@mnrendra/types-tsconfig": "^1.1.0",
+    "@mnrendra/validate-skipped-stacks": "^1.0.1"
+  },
   "devDependencies": {
     "@semantic-release/exec": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
