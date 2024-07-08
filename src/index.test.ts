@@ -1,27 +1,24 @@
-import type { CompilerOptions } from '@mnrendra/types-tsconfig'
+import type { CompilerOptions } from '.'
 
 import { ERROR_MESSAGES } from '@/consts'
 
-import {
-  readAsync as mockedReadAsync,
-  readSync as mockedReadSync
-} from '@tests/mocks'
-
-import {
-  readAsync as unmockReadAsync,
-  readSync as unmockReadSync
-} from '@tests/unmocks'
-
-import { tsConfigPaths, tsConfigValues } from '@tests/dummies'
+import tsConfigPaths from '@tests/dummies/tsConfigPaths'
+import tsConfigValues from '@tests/dummies/tsConfigValues'
+import mockedReadAsync from '@tests/mocks/readAsync'
+import mockedReadSync from '@tests/mocks/readSync'
+import unmockReadAsync from '@tests/unmocks/readAsync'
+import unmockReadSync from '@tests/unmocks/readSync'
 
 import {
   obtainTSConfigPaths,
-  obtainTSConfigPathsSync
+  obtainTSConfigPathsSync,
+  validateSkippedStacks
 } from '.'
 
 jest.mock('@mnrendra/read-stacked-file', () => ({
   read: jest.fn(),
-  readSync: jest.fn()
+  readSync: jest.fn(),
+  validateSkippedStacks: jest.fn()
 }))
 
 describe('Test all features:', () => {
@@ -360,6 +357,29 @@ describe('Test all features:', () => {
           expect(received).toEqual(expected)
         })
       })
+    })
+  })
+
+  describe('Test `validateSkippedStacks` util:', () => {
+    it('Should return a valid skipped-stacks when given a skipped-stack!', () => {
+      const received = validateSkippedStacks('any')
+      const expected = ['any']
+
+      expect(received).toEqual(expected)
+    })
+
+    it('Should return a valid skipped-stacks when given a skipped-stack and a `skippedStacks` option with a string!', () => {
+      const received = validateSkippedStacks('any', 'any')
+      const expected = ['any', 'any']
+
+      expect(received).toEqual(expected)
+    })
+
+    it('Should return a valid skipped-stacks when given a skipped-stack and a `skippedStacks` option with a list of strings!', () => {
+      const received = validateSkippedStacks('any', ['any'])
+      const expected = ['any', 'any']
+
+      expect(received).toEqual(expected)
     })
   })
 })

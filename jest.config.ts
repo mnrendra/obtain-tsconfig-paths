@@ -108,7 +108,7 @@ const config: Config = {
   // names that allow to stub out resources with a single module
   moduleNameMapper: pathsToModuleNameMapper({
     // @
-    '@': ['<rootDir>/src/'],
+    '@': ['<rootDir>/src'],
     '@/*': ['<rootDir>/src/*'],
     // @tests
     '@tests': ['<rootDir>/tests'],

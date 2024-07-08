@@ -43,7 +43,8 @@ console.log('synchronously:', baseUrl, paths)
 ```javascript
 // Skip your module stack:
 obtainTSConfigPaths({
-  skippedStacks: 'your-module-name' // To skip your module stack when you want to publish your package and allow your consumer's `tsconfig.json` to be read.
+  skippedStacks: 'your-module-name', // To skip your module stack when you want to publish your package and allow your consumer's `tsconfig.json` to be read.
+  stackTraceLimit: 10 // To specify the number of stack frames to be collected by `@mnrendra/stack-trace`.
 })
 
 // Or by passing your `baseUrl` and `paths` manually:
@@ -55,11 +56,27 @@ obtainTSConfigPaths({
 })
 ```
 
-# Types
+## Utility
+```javascript
+import {
+  validateSkippedStacks // To validate the list of stacks to be skipped. More info: @mnrendra/validate-skipped-stacks
+} from '@mnrendra/obtain-tsconfig-paths'
+```
+
+## Types
 ```typescript
 import type {
+  // @mnrendra/types-tsconfig
+  TSConfig,
+  CompilerOptions,
+  BaseURL,
+  Paths,
+  // @mnrendra/obtain-tsconfig-paths
   Options,
-  TSConfigPaths
+  TSConfigPaths,
+  // @mnrendra/validate-skipped-stacks
+  SkippedStacks,
+  ValidSkippedStacks
 } from '@mnrendra/obtain-tsconfig-paths'
 ```
 

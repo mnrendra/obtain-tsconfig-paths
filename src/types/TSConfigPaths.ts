@@ -1,4 +1,4 @@
-import type { BaseURL, Paths } from '@mnrendra/types-tsconfig'
+import type { BaseURL, Paths } from '.'
 
 interface TSConfigPaths {
   baseUrl: BaseURL
