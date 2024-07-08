@@ -1,15 +1,17 @@
-import type { CompilerOptions } from '@mnrendra/types-tsconfig'
+import type { CompilerOptions } from '@/types'
 
 import { ERROR_MESSAGES } from '@/consts'
 
-import { readSync as mockedReadSync } from '@tests/mocks'
-import { readSync as unmockReadSync } from '@tests/unmocks'
-import { tsConfigPaths, tsConfigValues } from '@tests/dummies'
+import tsConfigPaths from '@tests/dummies/tsConfigPaths'
+import tsConfigValues from '@tests/dummies/tsConfigValues'
+import mockedReadSync from '@tests/mocks/readSync'
+import unmockReadSync from '@tests/unmocks/readSync'
 
 import index from '.'
 
 jest.mock('@mnrendra/read-stacked-file', () => ({
-  readSync: jest.fn()
+  readSync: jest.fn(),
+  validateSkippedStacks: jest.fn()
 }))
 
 describe('Test sync feature:', () => {

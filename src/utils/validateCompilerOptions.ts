@@ -1,6 +1,4 @@
-import type { CompilerOptions } from '@mnrendra/types-tsconfig'
-
-import type { TSConfigPaths } from '../types'
+import type { CompilerOptions, TSConfigPaths } from '../types'
 
 import { ERROR_MESSAGES } from '../consts'
 
