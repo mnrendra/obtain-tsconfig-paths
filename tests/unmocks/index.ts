@@ -1,7 +1,7 @@
-import readAsync from './readAsync'
-import readSync from './readSync'
+import unmockReadAsync from './readAsync'
+import unmockReadSync from './readSync'
 
 export {
-  readAsync,
-  readSync
+  unmockReadAsync,
+  unmockReadSync
 }

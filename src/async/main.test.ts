@@ -1,15 +1,17 @@
-import type { CompilerOptions } from '@mnrendra/types-tsconfig'
+import type { CompilerOptions } from '@/types'
 
 import { ERROR_MESSAGES } from '@/consts'
 
-import { readAsync as mockedReadAsync } from '@tests/mocks'
-import { readAsync as unmockReadAsync } from '@tests/unmocks'
-import { tsConfigPaths, tsConfigValues } from '@tests/dummies'
+import tsConfigPaths from '@tests/dummies/tsConfigPaths'
+import tsConfigValues from '@tests/dummies/tsConfigValues'
+import mockedReadAsync from '@tests/mocks/readAsync'
+import unmockReadAsync from '@tests/unmocks/readAsync'
 
 import main from './main'
 
 jest.mock('@mnrendra/read-stacked-file', () => ({
-  read: jest.fn()
+  read: jest.fn(),
+  validateSkippedStacks: jest.fn()
 }))
 
 describe('Test `main` async feature:', () => {

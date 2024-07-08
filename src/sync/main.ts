@@ -1,9 +1,9 @@
 import type { Options, TSConfigPaths } from '../types'
 
-import validateSkippedStacks from '@mnrendra/validate-skipped-stacks'
-import { readTSConfigSync } from '@mnrendra/read-tsconfig'
+import { readTSConfigSync, validateSkippedStacks } from '@mnrendra/read-tsconfig'
 
-import { PACKAGE_NAME } from '../consts'
+import { SKIPPED_STACK } from '../consts'
+
 import { validateCompilerOptions } from '../utils'
 
 /**
@@ -24,7 +24,7 @@ const main = (
   // then obtain from the `tsconfig.json` file.
   if (baseUrl === undefined && paths === undefined) {
     // Validate skipped stacks.
-    const skippedStacks = validateSkippedStacks(PACKAGE_NAME, _skippedStacks)
+    const skippedStacks = validateSkippedStacks(SKIPPED_STACK, _skippedStacks)
 
     // Obtain the `compilerOptions` from the `tsconfig.json` file.
     const { compilerOptions } = readTSConfigSync({ skippedStacks })

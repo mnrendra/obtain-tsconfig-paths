@@ -1,8 +1,8 @@
-import type { CompilerOptions } from '@mnrendra/types-tsconfig'
+import type { CompilerOptions } from '@/types'
 
 import { ERROR_MESSAGES } from '@/consts'
 
-import { tsConfigPaths } from '@tests/dummies'
+import tsConfigPaths from '@tests/dummies/tsConfigPaths'
 
 import { validateCompilerOptions } from '.'
 
