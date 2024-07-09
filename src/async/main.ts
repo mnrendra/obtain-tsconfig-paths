@@ -18,16 +18,27 @@ const main = async (
   options: Options = {}
 ): Promise<TSConfigPaths> => {
   // Extract `options` properties.
-  const { baseUrl, paths, skippedStacks: _skippedStacks } = options ?? {}
+  const {
+    baseUrl,
+    paths,
+    skippedStacks,
+    stackTraceLimit
+  } = options ?? {}
 
   // If there is no `baseUrl` and `paths` in the `options`,
   // then obtain from the `tsconfig.json` file.
   if (baseUrl === undefined && paths === undefined) {
     // Validate skipped stacks.
-    const skippedStacks = validateSkippedStacks(SKIPPED_STACK, _skippedStacks)
+    const validSkippedStacks = validateSkippedStacks(
+      SKIPPED_STACK,
+      skippedStacks
+    )
 
     // Obtain the `compilerOptions` from the `tsconfig.json` file.
-    const { compilerOptions } = await readTSConfig({ skippedStacks })
+    const { compilerOptions } = await readTSConfig({
+      skippedStacks: validSkippedStacks,
+      stackTraceLimit
+    })
 
     // Return a valid `baseUrl` and `paths` from the `tsconfig.json`.
     return validateCompilerOptions(compilerOptions)
