@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import type { CompilerOptions } from '@/types'
 
 import { ERROR_MESSAGES } from '@/consts'
@@ -6,6 +7,16 @@ import tsConfigPaths from '@tests/dummies/tsConfigPaths'
 import tsConfigValues from '@tests/dummies/tsConfigValues'
 import mockedReadAsync from '@tests/mocks/readAsync'
 import unmockReadAsync from '@tests/unmocks/readAsync'
+=======
+import type { CompilerOptions } from '../types'
+
+import { ERROR_MESSAGES } from '@/consts'
+
+import mockedReadAsync from '@tests/mocks/readAsync'
+import unmockReadAsync from '@tests/unmocks/readAsync'
+import tsConfigPaths from '@tests/dummies/tsConfigPaths'
+import tsConfigValues from '@tests/dummies/tsConfigValues'
+>>>>>>> Stashed changes
 
 import index from '.'
 

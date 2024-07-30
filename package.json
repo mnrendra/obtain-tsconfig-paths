@@ -26,7 +26,11 @@
   },
   "homepage": "https://github.com/mnrendra/obtain-tsconfig-paths#readme",
   "dependencies": {
+<<<<<<< Updated upstream
     "@mnrendra/read-tsconfig": "^1.2.0"
+=======
+    "@mnrendra/read-tsconfig": "^1.1.0"
+>>>>>>> Stashed changes
   },
   "devDependencies": {
     "@semantic-release/exec": "^6.0.3",

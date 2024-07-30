@@ -4,6 +4,10 @@ import { readTSConfigSync, validateSkippedStacks } from '@mnrendra/read-tsconfig
 
 import { SKIPPED_STACK } from '../consts'
 
+<<<<<<< Updated upstream
+=======
+import { SKIPPED_STACK } from '../consts'
+>>>>>>> Stashed changes
 import { validateCompilerOptions } from '../utils'
 
 /**
@@ -29,10 +33,14 @@ const main = (
   // then obtain from the `tsconfig.json` file.
   if (baseUrl === undefined && paths === undefined) {
     // Validate skipped stacks.
+<<<<<<< Updated upstream
     const validSkippedStacks = validateSkippedStacks(
       SKIPPED_STACK,
       skippedStacks
     )
+=======
+    const skippedStacks = validateSkippedStacks(SKIPPED_STACK, _skippedStacks)
+>>>>>>> Stashed changes
 
     // Obtain the `compilerOptions` from the `tsconfig.json` file.
     const { compilerOptions } = readTSConfigSync({

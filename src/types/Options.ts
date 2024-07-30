@@ -1,4 +1,11 @@
+<<<<<<< Updated upstream
 import type { CompilerOptions, SkippedStacks } from '.'
+=======
+import type {
+  CompilerOptions,
+  SkippedStacks
+} from '.'
+>>>>>>> Stashed changes
 
 interface Options extends CompilerOptions {
   /**
@@ -11,6 +18,7 @@ interface Options extends CompilerOptions {
    * @see https://github.com/mnrendra/validate-skipped-stacks
    */
   skippedStacks?: SkippedStacks
+<<<<<<< Updated upstream
 
   /**
    * `@mnrendra/stack-trace`'s limit specifies the number of stack frames to be
@@ -20,6 +28,8 @@ interface Options extends CompilerOptions {
    *
    * @see https://github.com/mnrendra/stack-trace
    */
+=======
+>>>>>>> Stashed changes
   stackTraceLimit?: number
 }
 

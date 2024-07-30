@@ -68,12 +68,31 @@ import {
 import type {
   // @mnrendra/types-tsconfig
   TSConfig,
+<<<<<<< Updated upstream
   CompilerOptions,
   BaseURL,
   Paths,
   // @mnrendra/obtain-tsconfig-paths
   Options,
   TSConfigPaths,
+=======
+  BuildOptions,
+  CompileOnSave,
+  CompilerOptions,
+  BaseURL,
+  Paths,
+  Exclude,
+  Extends,
+  Files,
+  Include,
+  MDX,
+  References,
+  TSNode,
+  WatchOptions,
+  TypeAcquisition,
+  // @mnrendra/obtain-tsconfig-paths
+  Options,
+>>>>>>> Stashed changes
   // @mnrendra/validate-skipped-stacks
   SkippedStacks,
   ValidSkippedStacks
