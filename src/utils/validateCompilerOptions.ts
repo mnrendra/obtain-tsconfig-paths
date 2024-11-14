@@ -1,22 +1,14 @@
-import type { CompilerOptions, TSConfigPaths } from '../types'
+import type { CompilerOptions } from '@mnrendra/read-tsconfig'
+
+import type { TSConfigPaths } from '../types'
 
 import { ERROR_MESSAGES } from '../consts'
 
-/**
- * Validate `compilerOptions` to extract a valid `baseUrl` and `paths`.
- *
- * @param {CompilerOptions} compilerOptions - `compilerOptions`
- *
- * @returns {ValidBasePaths} A valid `baseUrl` and `paths`.
- */
 const validateCompilerOptions = (
   compilerOptions?: null | CompilerOptions
 ): TSConfigPaths => {
   // Intialize the default value.
-  const tsConfigPaths: TSConfigPaths = {
-    baseUrl: './',
-    paths: {}
-  }
+  const tsConfigPaths: TSConfigPaths = { baseUrl: './', paths: {} }
 
   // If `compilerOptions` is `undefined` or `null`, return the default value.
   if (compilerOptions === undefined || compilerOptions === null) {
@@ -55,5 +47,4 @@ const validateCompilerOptions = (
   return tsConfigPaths
 }
 
-// Export `validateCompilerOptions` as the default value.
 export default validateCompilerOptions
