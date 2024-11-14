@@ -1,44 +1,30 @@
-import type { Options, TSConfigPaths } from '../types'
+import type { TSConfigPaths } from '../types'
 
-import { readTSConfig, validateSkippedStacks } from '@mnrendra/read-tsconfig'
-
-import { SKIPPED_STACK } from '../consts'
+import { type CompilerOptions, readTSConfig } from '@mnrendra/read-tsconfig'
 
 import { validateCompilerOptions } from '../utils'
 
 /**
- * Obtain a valid `baseUrl` and `paths` from the `compilerOptions`
- * asynchronously, either from the `tsconfig.json` file or from the options.
+ * Obtain a valid `baseUrl` and `paths` from the `compilerOptions` in the
+ * `tsconfig.json` file asynchronously.
  *
- * @param {Options} options - `{ skippedStacks }` or `compilerOptions`.
+ * @param {CompilerOptions} options - A `compilerOptions` object.
  *
- * @returns {TSConfigPaths} A valid `baseUrl` and `paths`.
+ * @returns {Promise<TSConfigPaths>} A valid `baseUrl` and `paths` values.
+ *
+ * @see https://github.com/mnrendra/obtain-tsconfig-paths#readme
  */
 const main = async (
-  options: Options = {}
+  options: CompilerOptions = {}
 ): Promise<TSConfigPaths> => {
   // Extract `options` properties.
-  const {
-    baseUrl,
-    paths,
-    skippedStacks,
-    stackTraceLimit
-  } = options ?? {}
+  const { baseUrl, paths } = options ?? {}
 
   // If there is no `baseUrl` and `paths` in the `options`,
   // then obtain from the `tsconfig.json` file.
   if (baseUrl === undefined && paths === undefined) {
-    // Validate skipped stacks.
-    const validSkippedStacks = validateSkippedStacks(
-      SKIPPED_STACK,
-      skippedStacks
-    )
-
     // Obtain the `compilerOptions` from the `tsconfig.json` file.
-    const { compilerOptions } = await readTSConfig({
-      skippedStacks: validSkippedStacks,
-      stackTraceLimit
-    })
+    const { compilerOptions } = await readTSConfig()
 
     // Return a valid `baseUrl` and `paths` from the `tsconfig.json`.
     return validateCompilerOptions(compilerOptions)
@@ -48,5 +34,4 @@ const main = async (
   return validateCompilerOptions(options)
 }
 
-// Export `main` as the default value.
 export default main
