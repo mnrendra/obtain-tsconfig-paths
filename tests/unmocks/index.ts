@@ -1,7 +1,7 @@
-import unmockReadAsync from './readAsync'
-import unmockReadSync from './readSync'
+import readTSConfig from './readTSConfig'
+import readTSConfigSync from './readTSConfigSync'
 
 export {
-  unmockReadAsync,
-  unmockReadSync
+  readTSConfig,
+  readTSConfigSync
 }

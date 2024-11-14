@@ -1,6 +1,5 @@
 # @mnrendra/obtain-tsconfig-paths
-Obtain a valid `baseUrl` and `paths` from the `compilerOptions` in `tsconfig.json` file.</br>
-So, you don't need to import and validate the `tsconfig.json` file manually.
+Obtain a valid `baseUrl` and `paths` from the `compilerOptions` in the `tsconfig.json` file so you don't need to import and validate the `tsconfig.json` file manually.
 
 ## Install
 ```bash
@@ -39,29 +38,15 @@ const { baseUrl, paths } = obtainTSConfigPathsSync()
 console.log('synchronously:', baseUrl, paths)
 ```
 
-# Options
-```javascript
-// Skip your module stack:
-obtainTSConfigPaths({
-  skippedStacks: 'your-module-name', // To skip your module stack when you want to publish your package and allow your consumer's `tsconfig.json` to be read.
-  stackTraceLimit: 10 // To specify the number of stack frames to be collected by `@mnrendra/stack-trace`.
-})
-
-// Or by passing your `baseUrl` and `paths` manually:
-obtainTSConfigPaths({
-  baseUrl: './src',
-  paths: {
-    '@': ['./']
-  }
-})
-```
-
-## Utility
-```javascript
-import {
-  validateSkippedStacks // To validate the list of stacks to be skipped. More info: @mnrendra/validate-skipped-stacks
-} from '@mnrendra/obtain-tsconfig-paths'
-```
+## Options
+### • `baseUrl`
+*type: `BaseURL|null|undefined`*<br/>
+*default: `undefined`*<br/>
+`tsconfig.json`'s `compilerOptons.baseUrl`.
+### • `paths`
+*type: `Paths|null|undefined`*<br/>
+*default: `undefined`*<br/>
+`tsconfig.json`'s `compilerOptons.paths`.
 
 ## Types
 ```typescript
@@ -72,11 +57,7 @@ import type {
   BaseURL,
   Paths,
   // @mnrendra/obtain-tsconfig-paths
-  Options,
-  TSConfigPaths,
-  // @mnrendra/validate-skipped-stacks
-  SkippedStacks,
-  ValidSkippedStacks
+  TSConfigPaths
 } from '@mnrendra/obtain-tsconfig-paths'
 ```
 
