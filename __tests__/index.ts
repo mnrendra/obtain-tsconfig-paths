@@ -74,8 +74,12 @@ describe('Test all features:', () => {
     })
 
     it('Should resolve the value from `tsconfig.json` when given `null` argument!', async () => {
-      const received = await obtainTSConfigPaths(null as unknown as CompilerOptions)
+      const received = await obtainTSConfigPaths(
+        null as unknown as CompilerOptions
+      )
+
       const expected = { baseUrl: './src', paths: { '@': ['./'], '@/*': ['./*'], '@tests': ['../tests'], '@tests/*': ['../tests/*'] } }
+
       expect(received).toEqual(expected)
     })
 
@@ -113,7 +117,9 @@ describe('Test all features:', () => {
 
     describe('By mocking `readTSConfig` to resolve `compilerOptions` to be an array:', () => {
       beforeEach(() => {
-        mockedReadTSConfig.mockResolvedValue({ compilerOptions: [] as unknown as CompilerOptions })
+        mockedReadTSConfig.mockResolvedValue({
+          compilerOptions: [] as unknown as CompilerOptions
+        })
       })
 
       afterEach(() => {
@@ -129,7 +135,9 @@ describe('Test all features:', () => {
 
     describe('By mocking `readTSConfig` to resolve `compilerOptions` to be non-object:', () => {
       beforeEach(() => {
-        mockedReadTSConfig.mockResolvedValue({ compilerOptions: false as unknown as CompilerOptions })
+        mockedReadTSConfig.mockResolvedValue({
+          compilerOptions: false as unknown as CompilerOptions
+        })
       })
 
       afterEach(() => {
@@ -194,8 +202,12 @@ describe('Test all features:', () => {
     })
 
     it('Should return the value from `tsconfig.json` when given `null` argument!', () => {
-      const received = obtainTSConfigPathsSync(null as unknown as CompilerOptions)
+      const received = obtainTSConfigPathsSync(
+        null as unknown as CompilerOptions
+      )
+
       const expected = { baseUrl: './src', paths: { '@': ['./'], '@/*': ['./*'], '@tests': ['../tests'], '@tests/*': ['../tests/*'] } }
+
       expect(received).toEqual(expected)
     })
 
@@ -233,7 +245,9 @@ describe('Test all features:', () => {
 
     describe('By mocking `readTSConfig` to return `compilerOptions` to be an array:', () => {
       beforeEach(() => {
-        mockedReadTSConfigSync.mockReturnValue({ compilerOptions: [] as unknown as CompilerOptions })
+        mockedReadTSConfigSync.mockReturnValue({
+          compilerOptions: [] as unknown as CompilerOptions
+        })
       })
 
       afterEach(() => {
@@ -249,7 +263,9 @@ describe('Test all features:', () => {
 
     describe('By mocking `readTSConfig` to return `compilerOptions` to be non-object:', () => {
       beforeEach(() => {
-        mockedReadTSConfigSync.mockReturnValue({ compilerOptions: false as unknown as CompilerOptions })
+        mockedReadTSConfigSync.mockReturnValue({
+          compilerOptions: false as unknown as CompilerOptions
+        })
       })
 
       afterEach(() => {
